@@ -1,0 +1,42 @@
+import Vue from "vue";
+import Router from "vue-router";
+import Home from "./views/Home.vue";
+import AddMovie from "./views/AddMovie.vue";
+import SearchMovie from "./views/SearchMovie.vue";
+import Guide from "./views/Guide.vue";
+
+Vue.use(Router);
+
+export default new Router({
+  routes: [
+    {
+      path: "/",
+      name: "home",
+      component: Home
+    },
+    {
+      path: "/about",
+      name: "about",
+      // route level code-splitting
+      // this generates a separate chunk (about.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () =>
+        import(/* webpackChunkName: "about" */ "./views/About.vue")
+    },
+    {
+      path: "/add",
+      name: "AddMovie",
+      component: AddMovie
+    },
+    {
+      path: "/search",
+      name: "SearchMovie",
+      component: SearchMovie
+    },
+    {
+      path: "/help",
+      name: "Help",
+      component: Guide
+    }
+  ]
+});
